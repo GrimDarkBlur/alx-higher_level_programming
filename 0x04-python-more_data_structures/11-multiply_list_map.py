@@ -2,5 +2,5 @@
 
 
 def multiply_list_map(my_list=[], number=0):
-	"""Multiplies elements of list with some number"""
-	return (list(map(lambda x : x * number, my_list)))
+    """Multiplies elements of list with some number"""
+    return (list(map(lambda x: x * number, my_list)))
