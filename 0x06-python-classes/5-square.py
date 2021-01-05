@@ -7,7 +7,7 @@
 class Square:
     """Represent a square."""
 
-    def.ini.(self, size):
+    def __init__(self, size):
         """Initialize a new square.
 
         Args:
