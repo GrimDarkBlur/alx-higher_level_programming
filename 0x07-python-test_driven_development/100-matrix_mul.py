@@ -29,7 +29,6 @@ def matrix_mul(m_a, m_b):
     if len(m_b[0]) == 0:
         raise ValueError("m_b can't be empty")
 
-
     # Check the validity of the content of each list
     # inside each list of matrix a
     row_len = len(m_a[0])
@@ -38,8 +37,6 @@ def matrix_mul(m_a, m_b):
 
     if not all(type(num) in [int, float] for row in m_a for num in row):
         raise TypeError("m_a should contain only integers or floats")
-
-
     # Check the validity of the content of each list
     # inside each list of matrix a
     row_len = len(m_b[0])
@@ -48,7 +45,6 @@ def matrix_mul(m_a, m_b):
 
     if not all(type(num) in [int, float] for row in m_b for num in row):
         raise TypeError("m_b should contain only integers or floats")
-
     # check if the two vectors are multipliable
     acols = len(m_a[0])
     arows = len(m_a)
