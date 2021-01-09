@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 #Author Hileamlak M. Yitayew
+"""Defines a function that can multiply
+two matrices"""
 
 
 def matrix_mul(m_a, m_b):

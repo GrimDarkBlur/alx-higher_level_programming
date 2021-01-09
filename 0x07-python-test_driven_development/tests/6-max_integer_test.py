@@ -20,7 +20,10 @@ class TestMaxInteger(unittest.TestCase):
         self.assertRaises(TypeError, max_integer, [-2, "90"])
 
     def test_nomalResults(self):
+        self.assertEqual(max_integer([3]), 3)
         self.assertEqual(max_integer([1, 2, 3]), 3)
+        self.assertEqual(max_integer([4, 1, 2, 3]), 4)
+        self.assertEqual(max_integer([1, 4, 3]), 4)
         self.assertEqual(max_integer([-1000000, 1, 2, 3]), 3)
         self.assertEqual(max_integer([-1000000, 10000, 2.5, 3, 10000000000]),
                          10000000000)
