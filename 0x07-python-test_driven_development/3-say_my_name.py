@@ -1,9 +1,12 @@
 #!/usr/bin/python3
 #Author Hileamlak M. Yitayew
+"""Defines a full name printer function
+"""
 
 
 def say_my_name(first_name, last_name=""):
-    """Prints a string in a formated manner"""
+    """Prints a string in a formated manner
+    """
     if type(first_name) != str:
         raise TypeError("first_name must be a string")
     if type(last_name) != str:
