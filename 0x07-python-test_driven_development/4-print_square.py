@@ -1,9 +1,12 @@
 #!/usr/bin/python3
 #Author Hileamlak M. Yitayew
+"""Define a square printer function
+"""
 
 
 def print_square(size):
-    """Prints a square"""
+    """Prints a square
+    """
     if type(size) != int:
         raise TypeError("size must be an integer")
     if size < 0:
