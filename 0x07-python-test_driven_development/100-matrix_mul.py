@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 #Author Hileamlak M. Yitayew
+"""Define a matrix_multiplier function
+"""
 
 
 def matrix_mul(m_a, m_b):
