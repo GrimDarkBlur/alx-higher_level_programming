@@ -1,7 +1,12 @@
 #!/usr/bin/python3
 #Author Hileamlak M. Yitayew
+<<<<<<< HEAD
 """Defines a function that can multiply
 two matrices"""
+=======
+"""Define a matrix_multiplier function
+"""
+>>>>>>> 720922dea0657febaeee49d2784bbe90d5f91aec
 
 
 def matrix_mul(m_a, m_b):
