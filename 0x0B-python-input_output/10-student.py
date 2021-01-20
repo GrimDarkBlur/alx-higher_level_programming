@@ -36,13 +36,6 @@ class Student:
 
        return json_dic
 
-    def relod_from_json(self, json):
-    """replaces object's attributes
-    """
-
-        for k, v in json.items():
-            setattr(self, k, v)
-
 
 
 
