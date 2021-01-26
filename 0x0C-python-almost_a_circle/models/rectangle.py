@@ -142,7 +142,7 @@ class Rectangle(Base):
             return
 
         if self._y != 0:
-            print("\n" * self._y)
+            print("\n" * (self._y - 1))
         for y in range(self._height):
             if self._x != 0:
                 print(" " * self._x, end="")
