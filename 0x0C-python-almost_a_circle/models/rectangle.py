@@ -49,7 +49,6 @@ class Rectangle(Base):
         if y < 0:
             raise ValueError("y must be >= 0")
 
-
         super().__init__(id)
         self._width = width
         self._height = height
@@ -158,49 +157,64 @@ class Rectangle(Base):
                                                        self._y,
                                                        self._width,
                                                        self._height)
+
     def update(self, *args, **kwargs):
         """Update the Rectangle.
 
-        Args:
-            *args (ints): New attribute values.
-                - 1st argument represents id attribute
-                - 2nd argument represents width attribute
-                - 3rd argument represent height attribute
-                - 4th argument represents x attribute
-                - 5th argument represents y attribute
-            **kwargs (dict): New key/value pairs of attributes.
+         Args:
+             *args (ints): New attribute values.
+                 - 1st argument represents id attribute
+                 - 2nd argument represents width attribute
+                 - 3rd argument represent height attribute
+                 - 4th argument represents x attribute
+                 - 5th argument represents y attribute
+             **kwargs (dict): New key/value pairs of attributes.
         """
 
         new_args = [self.id, self._width, self._height, self._x, self._y]
-        if len(args) == 0 or args == None:
+        if len(args) == 0 or args is None:
             if len(kwargs) == 0:
                 return
             else:
-                try:new_args[0] = kwargs['id']
-                except KeyError:pass
-                try:new_args[1] = kwargs['width']
-                except KeyError:pass
-                try:new_args[2] = kwargs['height']
-                except KeyError:pass
-                try:new_args[3] = kwargs['x']
-                except KeyError:pass
-                try:new_args[4] = kwargs['y']
-                except KeyError:pass
+                try:
+                    new_args[0] = kwargs['id']
+                except KeyError:
+                    pass
+                try:
+                    new_args[1] = kwargs['width']
+                except KeyError:
+                    pass
+                try:
+                    new_args[2] = kwargs['height']
+                except KeyError:
+                    pass
+                try:
+                    new_args[3] = kwargs['x']
+                except KeyError:
+                    pass
+                try:
+                    new_args[4] = kwargs['y']
+                except KeyError:
+                    pass
         else:
             for x in range(len(args)):
-                new_args[x] = args[x]
-        self.__init__(new_args[1], new_args[2], new_args[3], new_args[4], new_args[0])
+                if x < len(new_args):
+                    new_args[x] = args[x]
+        self.__init__(new_args[1],
+                      new_args[2],
+                      new_args[3],
+                      new_args[4],
+                      new_args[0])
 
     def to_dictionary(self):
         """Returns a dictionary representation of the the
         object"""
 
         obj_dic = {
-                   "id": self.id,
-                   "width": self.width,
-                   "height": self.height,
-                   "x": self.x,
-                   "y": self.y
-                   }
+            "id": self.id,
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y
+        }
         return obj_dic
-

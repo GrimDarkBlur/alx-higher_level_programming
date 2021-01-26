@@ -3,6 +3,9 @@
 """Defines a base model class.
 """
 import json
+import csv
+import turtle
+
 
 class Base:
     """Represent the base model.
@@ -17,14 +20,13 @@ class Base:
 
     def __init__(self, id=None):
         """intializes an instance
-	"""
+        """
 
-        if id == None:
+        if id is None:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
         else:
             self.id = id
-
 
     @staticmethod
     def to_json_string(list_dictionaries):
@@ -81,7 +83,7 @@ class Base:
         """
         try:
             with open(cls.__name__ + ".json", 'r') as json_file:
-                objs = from_json_string(json_file.read())
+                objs = Base.from_json_string(json_file.read())
                 return [cls.create(**d) for d in objs]
         except IOError:
             return []

@@ -26,6 +26,7 @@ class Square(Rectangle):
                                                  self._x,
                                                  self._y,
                                                  self._width)
+
     @property
     def size(self):
         """returns the size of the object
@@ -54,32 +55,43 @@ class Square(Rectangle):
         """
 
         new_args = [self.id, self._width, self._x, self._y]
-        if len(args) == 0 or args == None:
+        if len(args) == 0 or args is None:
             if len(kwargs) == 0:
                 return
             else:
-                try:new_args[0] = kwargs['id']
-                except KeyError:pass
-                try:new_args[1] = kwargs['size']
-                except KeyError:pass
-                try:new_args[2] = kwargs['x']
-                except KeyError:pass
-                try:new_args[3] = kwargs['y']
-                except KeyError:pass
+                try:
+                    new_args[0] = kwargs['id']
+                except KeyError:
+                    pass
+                try:
+                    new_args[1] = kwargs['size']
+                except KeyError:
+                    pass
+                try:
+                    new_args[2] = kwargs['x']
+                except KeyError:
+                    pass
+                try:
+                    new_args[3] = kwargs['y']
+                except KeyError:
+                    pass
         else:
             for x in range(len(args)):
-                new_args[x] = args[x]
-        self.__init__(new_args[1], new_args[2], new_args[3], new_args[0])
+                if x < len(new_args):
+                    new_args[x] = args[x]
+        self.__init__(new_args[1],
+                      new_args[2],
+                      new_args[3],
+                      new_args[0])
 
     def to_dictionary(self):
         """Returns a dictionary representation of the the
         object"""
 
         obj_dic = {
-                   "id": self.id,
-                   "size": self.width,
-                   "x": self.x,
-                   "y": self.y
-                   }
+            "id": self.id,
+            "size": self.width,
+            "x": self.x,
+            "y": self.y
+        }
         return obj_dic
-
