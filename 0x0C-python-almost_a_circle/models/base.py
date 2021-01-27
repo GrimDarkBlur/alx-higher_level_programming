@@ -70,7 +70,7 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        """An alternateive way to return to create a rectange object
+        """An alternateive way to return to create a rectange/ object
         """
 
         obj = cls(2, 2)
