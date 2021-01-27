@@ -73,7 +73,13 @@ class Base:
         """An alternateive way to return to create a rectange/ object
         """
 
-        obj = cls(2, 2)
+        if not dictionary and dictionary == {}:
+            return
+
+        if cls.__name__ == 'Rectangle':
+            obj = cls(1, 1)
+        elif cls.__name__ == 'Square':
+            obj = cls(1)
         obj.update(**dictionary)
         return obj
 
