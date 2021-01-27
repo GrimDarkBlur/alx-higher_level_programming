@@ -158,8 +158,8 @@ class Base:
         for i in range(2):
             turt.forward(width)
             turt.left(90)
-            turt.forward(width)
-            turt.right(90)
+            turt.forward(height)
+            turt.left(90)
         turt.hideturtle()
 
     @staticmethod
@@ -171,13 +171,13 @@ class Base:
             list_squares (list): A list of Square objects to draw.
         """
         turt = turtle.Turtle()
-        turt.screen.bgcolor("#b7312c")
+        turt.screen.bgcolor("#fff")
         turt.pensize(3)
         turt.shape("turtle")
 
         turt.color("#ffffff")
         for rect in list_rectangles:
-            Base.draw_rect(turt, sq.x, sq.y, sq.width, sq.height)
+            Base.draw_rect(turt, rect.x, rect.y, rect.width, rect.height)
 
         turt.color("#b5e3d8")
         for sq in list_squares:

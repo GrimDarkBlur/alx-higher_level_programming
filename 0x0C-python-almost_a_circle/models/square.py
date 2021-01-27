@@ -23,16 +23,16 @@ class Square(Rectangle):
         """
 
         return "[Square] ({}) {}/{} - {}".format(self.id,
-                                                 self._x,
-                                                 self._y,
-                                                 self._width)
+                                                 self._Rectangle__x,
+                                                 self._Rectangle__y,
+                                                 self._Rectangle__width)
 
     @property
     def size(self):
         """returns the size of the object
         """
 
-        return self._width
+        return self._Rectangle__width
 
     @size.setter
     def size(self, size):
@@ -54,7 +54,7 @@ class Square(Rectangle):
             **kwargs (dict): New key/value pairs of attributes.
         """
 
-        new_args = [self.id, self._width, self._x, self._y]
+        new_args = [self.id, self._Rectangle__width, self._Rectangle__x, self._Rectangle__y]
         if len(args) == 0 or args is None:
             if len(kwargs) == 0:
                 return

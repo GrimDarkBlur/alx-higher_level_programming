@@ -50,17 +50,17 @@ class Rectangle(Base):
             raise ValueError("y must be >= 0")
 
         super().__init__(id)
-        self._width = width
-        self._height = height
-        self._x = x
-        self._y = y
+        self.__width = width
+        self.__height = height
+        self.__x = x
+        self.__y = y
 
     @property
     def width(self):
         """width getter function
         """
 
-        return self._width
+        return self.__width
 
     @width.setter
     def width(self, width):
@@ -71,14 +71,14 @@ class Rectangle(Base):
             raise TypeError("width must be an integer")
         if width <= 0:
             raise ValueError("width must be > 0")
-        self._width = width
+        self.__width = width
 
     @property
     def height(self):
         """height getter function
         """
 
-        return self._height
+        return self.__height
 
     @height.setter
     def height(self, height):
@@ -89,14 +89,14 @@ class Rectangle(Base):
             raise TypeError("height must be an integer")
         if height <= 0:
             raise ValueError("height must be > 0")
-        self._height = height
+        self.__height = height
 
     @property
     def x(self):
         """x getter function
         """
 
-        return self._x
+        return self.__x
 
     @x.setter
     def x(self, x):
@@ -107,14 +107,14 @@ class Rectangle(Base):
             raise TypeError("x must be an integer")
         if x < 0:
             raise ValueError("x must be >= 0")
-        self._x = x
+        self.__x = x
 
     @property
     def y(self):
         """y getter function
         """
 
-        return self._y
+        return self.__y
 
     @y.setter
     def y(self, y):
@@ -125,38 +125,38 @@ class Rectangle(Base):
             raise TypeError("y must be an integer")
         if y < 0:
             raise ValueError("y must be >= 0")
-        self._y = y
+        self.__y = y
 
     def area(self):
         """Returns the area of the current
         rectangle"""
 
-        return self._width * self._height
+        return self.__width * self.__height
 
     def display(self):
         """prints the rectangle
         """
 
-        if self._width == 0 or self._height == 0:
+        if self.__width == 0 or self.__height == 0:
             print()
             return
 
-        if self._y != 0:
-            print("\n" * (self._y - 1))
-        for y in range(self._height):
-            if self._x != 0:
-                print(" " * self._x, end="")
-            print("#" * self._width)
+        if self.__y != 0:
+            print("\n" * (self.__y - 1))
+        for y in range(self.__height):
+            if self.__x != 0:
+                print(" " * self.__x, end="")
+            print("#" * self.__width)
 
     def __str__(self):
         """string representaaion of the class
         """
 
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
-                                                       self._x,
-                                                       self._y,
-                                                       self._width,
-                                                       self._height)
+                                                       self.__x,
+                                                       self.__y,
+                                                       self.__width,
+                                                       self.__height)
 
     def update(self, *args, **kwargs):
         """Update the Rectangle.
@@ -171,7 +171,7 @@ class Rectangle(Base):
              **kwargs (dict): New key/value pairs of attributes.
         """
 
-        new_args = [self.id, self._width, self._height, self._x, self._y]
+        new_args = [self.id, self.__width, self.__height, self.__x, self.__y]
         if len(args) == 0 or args is None:
             if len(kwargs) == 0:
                 return
