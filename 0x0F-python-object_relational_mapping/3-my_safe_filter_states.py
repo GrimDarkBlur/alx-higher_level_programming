@@ -8,17 +8,17 @@ import re
 import sys
 
 
-db = MySQLdb.connect(host="localhost", port=3306, user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
-
-cursor = db.cursor()
-query = """
-SELECT id, name
-FROM states
-WHERE name = '{}'
-ORDER BY id
-""".format(re.sub(r'(\n|\r|\x00|\\|\'|\"|\x1a)', r'\\\1', sys.argv[4]))
-
 if __name__ == "__main__":
+    db = MySQLdb.connect(host="localhost", port=3306, user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
+
+    cursor = db.cursor()
+    query = """
+    SELECT id, name
+    FROM states
+    WHERE name = '{}'
+    ORDER BY id
+    """.format(re.sub(r'(\n|\r|\x00|\\|\'|\"|\x1a)', r'\\\1', sys.argv[4]))
+
     cursor.execute(query)
     results = cursor.fetchall()
     for result in results:
