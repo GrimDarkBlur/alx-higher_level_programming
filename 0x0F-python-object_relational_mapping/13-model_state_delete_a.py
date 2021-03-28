@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-# Lists all State objects from the database hbtn_0e_6_usa.
-# Usage: ./7-model_state_fetch_all.py <mysql username> /
+# Deletes all State objects with a name containing
+# the letter a from the database hbtn_0e_6_usa.
+# Usage: ./13-model_state_delete_a.py <mysql username> /
 #                                     <mysql password> /
 #                                     <database name>
 import sys
@@ -15,5 +16,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    for state in session.query(State).order_by(State.id):
-        print("{}: {}".format(state.id, state.name))
+    for state in session.query(State):
+        if "a" in state.name:
+            session.delete(state)
+    session.commit()

@@ -1,25 +1,16 @@
-#!/usr/bin/env python3
-"""
-prints the contents of a database
-using mysqldb
-"""
-import MySQLdb
-import re
+#!/usr/bin/python3
+# Displays all values in the states table of the database hbtn_0e_0_usa
+# whose name matches that supplied as argument.
+# Safe from SQL injections.
+# Usage: ./3-my_safe_filter_states.py <mysql username> \
+#                                     <mysql password> \
+#                                     <database name> \
+#                                     <state name searched>
 import sys
-
+import MySQLdb
 
 if __name__ == "__main__":
-    db = MySQLdb.connect(host="localhost", port=3306, user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
-
-    cursor = db.cursor()
-    query = """
-    SELECT id, name
-    FROM states
-    WHERE name = '{}'
-    ORDER BY id
-    """.format(re.sub(r'(\n|\r|\x00|\\|\'|\"|\x1a)', r'\\\1', sys.argv[4]))
-
-    cursor.execute(query)
-    results = cursor.fetchall()
-    for result in results:
-        print(result)
+    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
+    c = db.cursor()
+    c.execute("SELECT * FROM `states`")
+    [print(state) for state in c.fetchall() if state[1] == sys.argv[4]]
