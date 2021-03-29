@@ -6,7 +6,8 @@
 #                                <mysql password> \
 #                                <database name> \
 #
-"""                              <state name searched>
+                              <state name searched>
+"""
 import sys
 import MySQLdb
 
