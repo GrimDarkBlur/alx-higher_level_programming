@@ -12,7 +12,7 @@ if __name__ == "__main__":
     url = "http://0.0.0.0:5000/search_user"
     args = sys.argv[1] if len(sys.argv) >= 2 else ""
 
-    response = requests.post(url, {"q":args})
+    response = requests.post(url, {"q": args})
     try:
         json_r = response.json()
         if not json_r:
