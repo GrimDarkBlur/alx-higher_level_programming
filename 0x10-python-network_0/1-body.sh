@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # pritns the body of a request if the status code 
 # is 200 using curl
 

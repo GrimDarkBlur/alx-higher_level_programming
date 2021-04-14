@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # prints the content length of a header
 # of a get requests using curl
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # prints status code of a response
 # to a curl request
 

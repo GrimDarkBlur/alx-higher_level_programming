@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # sends a post request as a json
 # file using curl
 
